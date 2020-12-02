@@ -6,7 +6,6 @@ lines = sorted([int(line) for line in lines])
 for i in range(198):  # two pointer
     left = i + 1
     r = 199
-    print(i)
 
     while left < r:
         s = lines[i] + lines[left] + lines[r]
