@@ -5,3 +5,6 @@ with open("input.txt") as f:
 seats = [int(line.replace("F", "0").replace("L", "0").replace("B", "1").replace("R", "1"), 2) for line in lines]
 
 print(max(seats))
+
+left = [x for x in range(min(seats), max(seats)) if x not in seats]
+print(left)
