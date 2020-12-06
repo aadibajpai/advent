@@ -2,8 +2,9 @@ with open("input.txt") as f:
     lines = f.read().split("\n\n")
 
 s = 0
-print(lines)
+
 for line in lines:
-    s += len(set(line.replace("\n", "")))
+    ans = [set(x) for x in line.split()]
+    s += len(set.intersection(*ans))
 
 print(s)
