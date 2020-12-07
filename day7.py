@@ -1,7 +1,7 @@
 with open("input.txt") as f:
     lines = f.read().splitlines()
 
-s = set()
+s = 1
 bags = {''.join(line.split()[:2]): [] for line in lines}
 
 for line in lines:
@@ -11,15 +11,24 @@ for line in lines:
     bag = line[0] + line[1]
     for i in range(3, len(line)):
         if line[i].startswith("bag"):
-            bags[bag].append(line[i-2]+line[i-1])
+            bags[bag].append((int(line[i-3]), line[i-2]+line[i-1]))
 
-hold = [""]
+
 x = "shinygold"
-while x:
-    for k, v in bags.items():
-        if x in v:
-            s.add(k)
-            hold.append(k)
-    x = hold.pop()
+print(bags)
 
-print(len(s))
+
+def f(x):
+    s = 1
+    if (vals := bags[x]):
+        print(vals)
+        for i in vals:
+            n, k = i
+            print(n, k)
+            s += n * f(k)
+    return s
+
+
+s = f(x) - 1  # subtract 1 since it will be added for empty list
+
+print(s)
