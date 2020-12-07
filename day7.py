@@ -29,6 +29,6 @@ def f(x):
     return s
 
 
-s = f(x) - 1  # subtract 1 since it will be added for empty list
+s = f(x) - 1  # subtract 1 since we don't want to count shiny gold itself
 
 print(s)
