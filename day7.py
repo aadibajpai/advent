@@ -1,7 +1,6 @@
 with open("input.txt") as f:
     lines = f.read().splitlines()
 
-s = 1
 bags = {''.join(line.split()[:2]): [] for line in lines}
 
 for line in lines:
@@ -15,16 +14,13 @@ for line in lines:
 
 
 x = "shinygold"
-print(bags)
 
 
 def f(x):
     s = 1
     if (vals := bags[x]):
-        print(vals)
         for i in vals:
             n, k = i
-            print(n, k)
             s += n * f(k)
     return s
 
