@@ -4,14 +4,14 @@ with open("input.txt") as f:
 
 def f(lines):
     acc = 0
-    visited = [False for _ in range(len(lines))]
+    visited = set()
 
     i = 0
     while i < len(lines):
-        if visited[i]:
+        if i in visited:
             return None
         line = lines[i]
-        visited[i] = True
+        visited.add(i)
         if line[:3] == "acc":
             acc += int(line[4:])
         elif line[:3] == "jmp":
