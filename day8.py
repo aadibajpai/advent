@@ -10,12 +10,12 @@ def f(lines):
     while i < len(lines):
         if visited[i]:
             return None
-        l = lines[i]
+        line = lines[i]
         visited[i] = True
-        if l[:3] == "acc":
-            acc += int(l[4:])
-        elif l[:3] == "jmp":
-            i += int(l[4:])
+        if line[:3] == "acc":
+            acc += int(line[4:])
+        elif line[:3] == "jmp":
+            i += int(line[4:])
             continue
         i += 1
     return acc
