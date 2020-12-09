@@ -19,7 +19,7 @@ for line in linez:
         break
 
 for i in range(len(lines)):
-    for j in range(i, len(lines)):
+    for j in range(i+2, len(lines)):
         window = lines[i:j]
 
         if sum(window) == ll:
