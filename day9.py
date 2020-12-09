@@ -18,9 +18,23 @@ for line in linez:
         ll = line
         break
 
-for i in range(len(lines)):
-    for j in range(i+2, len(lines)):
-        window = lines[i:j]
+# actually use a sliding window
+# for i in range(len(lines)):
+#     for j in range(i+2, len(lines)):
+#         window = lines[i:j]
+#         if sum(window) == ll:
+#             print(min(window) + max(window))
 
-        if sum(window) == ll:
-            print(min(window) + max(window))
+# optimized and much more cooler
+
+start = end = ss = 0
+while ss != ll:
+    if ss < ll:
+        ss += lines[end]
+        end += 1
+    else:
+        ss -= lines[start]
+        start += 1
+
+arr = lines[start:end]
+print(min(arr) + max(arr))
