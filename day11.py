@@ -9,18 +9,21 @@ changed = True
 def adj(i, j, L):
     empty = 0
     seats = 0
-    arr = [(i+1, j),(i, j+1),(i-1, j),(i, j-1),(i+1, j+1),
-            (i-1, j-1),(i+1, j-1),(i-1, j+1)]
+    arr = [(0+1, 0),(0, 0+1),(0-1, 0),(0, 0-1),(0+1, 0+1),
+            (0-1, 0-1),(0+1, 0-1),(0-1, 0+1)]
     for x in arr:
         a, b = x
-# BRUH PYTHON ALLOWS NEGATIVE VALUES LOL
-#        try:
-#            ch = lines[a][b]
-#        except:
-#            continue
-        if not (0 <= a < r and 0 <= b < c):
+        if not (0 <= i+a < r and 0 <= j+b < c):
             continue
-        ch = lines[a][b]
+        ch = lines[i+a][j+b]
+        t = 1
+        while 0 <= i+a*t < r and 0 <= j+b*t < c:
+            if ch != ".":
+                break
+            else:
+                ch = lines[i+a*t][j+b*t]
+                t += 1
+
         if ch == "L":
             empty += 1
             seats += 1
@@ -28,7 +31,7 @@ def adj(i, j, L):
             seats += 1
     if L:
         return seats - empty == 0
-    return seats - empty >= 4
+    return seats - empty >= 5
 
 while True:
     owo = []
