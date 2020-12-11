@@ -38,18 +38,12 @@ while True:
     for i in range(r):
         row = ""
         for j in range(c):
-            if lines[i][j] == ".":
-                row += "."
-            elif lines[i][j] == "L":
-                if adj(i, j, True):
-                    row += "#"
-                else:
-                    row += "L"
+            if lines[i][j] == "L" and adj(i, j, True):
+                row += "#"
+            elif lines[i][j] == "#" and adj(i, j, False):
+                row += "L"
             else:
-                if adj(i, j, False):
-                    row += "L"
-                else:
-                    row += "#"
+                row += lines[i][j]
         owo.append(row)
     if owo == lines:
           break
