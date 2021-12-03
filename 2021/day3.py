@@ -26,10 +26,8 @@ def part1(data):
     return int(gamma, 2) * int(epsilon, 2)
 
 
-def hlep(arr, flag):
+def hlep(arr, want):
     arr = arr[:]
-    numb = "0" if flag == 0 else "1"
-    other_num = "1" if flag == 0 else "0"
     for i in range(len(arr[0])):
         total = len(arr)
         zeros = 0
@@ -37,11 +35,11 @@ def hlep(arr, flag):
             if number[i] == '0':
                 zeros += 1
         if zeros > total/2:
-            arr = [num for num in arr if num[i] == numb]
+            arr = [num for num in arr if int(num[i]) == want]
         elif zeros == total/2:
-            arr = [num for num in arr if num[i] == other_num]
+            arr = [num for num in arr if int(num[i]) == (not want)]
         else:
-            arr = [num for num in arr if num[i] == other_num]
+            arr = [num for num in arr if int(num[i]) == (not want)]
         if len(arr) == 1:
             return arr[0]
 
