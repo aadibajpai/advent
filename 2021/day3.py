@@ -29,10 +29,7 @@ def part1(data):
 def hlep(arr, want):
     for i in range(len(arr[0])):
         total = len(arr)
-        zeros = 0
-        for number in arr:
-            if number[i] == '0':
-                zeros += 1
+        zeros = len([x for x in arr if x[i] == '0'])
         arr = [num for num in arr if int(num[i]) == (want if zeros > total/2 else not want)]
         if len(arr) == 1:
             return arr[0]
