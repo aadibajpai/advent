@@ -10,19 +10,11 @@ def main():
 def part1(data):
     total = len(data)
     i = 0
-    gamma = ""
-    epsilon = ""
+    gamma = epsilon = ""
     for i in range(len(data[0])):
-        zeros = 0
-        for number in data:
-            if number[i] == '0':
-                zeros += 1
-        if zeros > total/2:
-            gamma += '0'
-            epsilon += '1'
-        else:
-            gamma += '1'
-            epsilon += '0'
+        zeros = len([x for x in data if x[i] == '0'])
+        gamma += '0' if zeros > total/2 else '1'
+        epsilon += '1' if zeros > total/2 else '0'
     return int(gamma, 2) * int(epsilon, 2)
 
 
