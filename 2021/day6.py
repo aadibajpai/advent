@@ -5,7 +5,7 @@ def main():
         # read file without newline characters
         data = list(map(int, f.readline().split(',')))
         
-    print(f'Part 1: {part1(data)}')
+    print(f'Part 1: {part1(data[:])}')
     print(f'Part 2: {part2(data)}') 
 
 def simulate(data):
