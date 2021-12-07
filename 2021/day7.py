@@ -11,15 +11,13 @@ def main():
 
 def part1(lines):
     # find minimal movements to align all numbers
-    # arbitrary random big number
+    # arbitrary big number
     min_move = 1000000000
     for i in range(len(lines)):
         diff = 0
         for j in range(len(lines)):
             diff += abs(lines[j] - lines[i])
-        if diff < min_move:
-            # update the minimal difference
-            min_move = diff
+        min_move = min(min_move, diff)
     return min_move
 
 
