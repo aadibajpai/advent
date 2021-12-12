@@ -24,13 +24,6 @@ def match(chr, stack):
             return points[chr]
     return 0
 
-def corrupted(chr, stack):
-    if chr in starts:
-        stack.append(chr)
-    elif chr in ends:
-        if stack.pop() != mat[chr]:
-            return True
-    return False
 
 def part1(lines):
     # match braces per line and output failure if not matching
