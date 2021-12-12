@@ -1,7 +1,7 @@
-# read numbers from inputs.txt and count the number of times they increase
 from copy import deepcopy as dc
+
 def main():
-    with open('inputs/inputs11.txt') as f:
+    with open('inputs/inputs12.txt') as f:
         # read file without newline characters
         data = [[int(i) for i in line] for line in f.read().splitlines()]
         # for line in f.readlines():
