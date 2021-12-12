@@ -6,9 +6,14 @@ def main():
         data = f.readlines()
         # for line in f.readlines():
         #     data.append([int(i) for i in line.strip()])
+        graph = defaultdict(list)
+        for line in data:
+            x, y = line.strip().split('-')
+            graph[x].append(y)
+            graph[y].append(x)
 
-    print(f'Part 1: {part1(dc(data))}')
-    print(f'Part 2: {part2(data)}') 
+    print(f'Part 1: {part1(graph)}')
+    print(f'Part 2: {part2(graph)}') 
 
 def explore2(graph, pt, visited, dupe=None):
     paths = 0
@@ -21,7 +26,6 @@ def explore2(graph, pt, visited, dupe=None):
             dupe = pt
         else:
             return 0
-    # recursively explore till end
     # use | instead of add so it creates a new set
     visited = visited | {pt}
     for i in graph[pt]:  
@@ -44,25 +48,13 @@ def explore(graph, pt, visited):
 
 def part1(lines):
     paths = 0
-    graph = defaultdict(list)
-    for line in lines:
-        x, y = line.strip().split('-')
-        graph[x].append(y)
-        graph[y].append(x)
-
-    paths += explore(graph, "start", set())
+    paths += explore(lines, "start", set())
     return paths
 
 
 def part2(lines):
     paths = 0
-    graph = defaultdict(list)
-    for line in lines:
-        x, y = line.strip().split('-')
-        graph[x].append(y)
-        graph[y].append(x)
-
-    paths += explore2(graph, "start", set(), dupe=None)
+    paths += explore2(lines, "start", set(), dupe=None)
     return paths
 
 if __name__ == '__main__':
