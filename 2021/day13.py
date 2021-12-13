@@ -1,10 +1,6 @@
-# read numbers from inputs.txt and count the number of times they increase
 def main():
     with open('inputs/inputs13.txt') as f:
-        # read file without newline characters
         data = f.readlines()
-        # for line in f.readlines():
-        #     data.append([int(i) for i in line.strip()])
 
     print(f'Part 1: {part1(data[:])}')
     print(f'Part 2: {part2(data[:])}') 
@@ -54,7 +50,7 @@ def part1(lines):
             p1 = False
 
     # count number of True values in lst
-    # replace True with # and False with .
+    # replace True with # and False with space
     lst = [[' ' if not x else '#' for x in row] for row in lst]
     for row in lst:
         print(''.join(row))
