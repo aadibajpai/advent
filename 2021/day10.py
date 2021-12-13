@@ -1,4 +1,4 @@
-# read numbers from inputs.txt and count the number of times they increase
+from copy import deepcopy as dc
 def main():
     with open('inputs/inputs10.txt') as f:
         # read file without newline characters
@@ -6,7 +6,7 @@ def main():
         # for line in f.readlines():
         #     data.append([int(i) for i in line.strip()])
 
-    print(f'Part 1: {part1(data[:])}')
+    print(f'Part 1: {part1(dc(data))}')
     print(f'Part 2: {part2(data[:])}') 
 
 points = {')': 3, ']': 57, '}': 1197, '>': 25137}
