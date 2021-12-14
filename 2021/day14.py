@@ -33,7 +33,8 @@ def part1(string, rules):
                 c[i[0]] += ss[i]
             # print most common count - least common count
             # off by one pain
-            print(c.most_common()[0][1] - c.most_common()[-1][1] + 1)
+            c[string[-1]] += 1
+            print(c.most_common()[0][1] - c.most_common()[-1][1])
     
 
 def part2(lines):
